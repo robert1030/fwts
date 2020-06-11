@@ -82,7 +82,7 @@ int fwts_munmap(void *mem, const size_t size)
 	off_t offset;
 
 	page_size = fwts_page_size();
-	offset = ((off_t)(mem)) & (page_size - 1);
+	offset = ((uintptr_t)(mem)) & (page_size - 1);
 
 	if (munmap((void *)((uint8_t *)mem - offset), size + offset) < 0)
 		return FWTS_ERROR;

@@ -55,7 +55,7 @@ static void *fwts_smbios_find_entry_uefi(fwts_framework *fw, fwts_smbios_entry *
 		fwts_smbios_entry *mapped_entry;
 		const size_t size = sizeof(fwts_smbios_entry);
 
-		if ((mapped_entry = fwts_mmap((off_t)addr, size)) != FWTS_MAP_FAILED) {
+		if ((mapped_entry = fwts_mmap((uintptr_t)addr, size)) != FWTS_MAP_FAILED) {
 			if (fwts_safe_memcpy(entry, mapped_entry, size) == FWTS_OK) {
 				(void)fwts_munmap(mapped_entry, size);
 				*type  = FWTS_SMBIOS;
@@ -91,7 +91,7 @@ static void *fwts_smbios30_find_entry_uefi(fwts_framework *fw, fwts_smbios30_ent
 		fwts_smbios30_entry *mapped_entry;
 		const size_t size = sizeof(fwts_smbios30_entry);
 
-		if ((mapped_entry = fwts_mmap((off_t)addr, size)) != FWTS_MAP_FAILED) {
+		if ((mapped_entry = fwts_mmap((uintptr_t)addr, size)) != FWTS_MAP_FAILED) {
 			if (fwts_safe_memread(mapped_entry, size) == FWTS_OK) {
 				*entry = *mapped_entry;
 				(void)fwts_munmap(mapped_entry, size);
