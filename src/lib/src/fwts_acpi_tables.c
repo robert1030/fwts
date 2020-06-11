@@ -42,6 +42,7 @@
 #define BIOS_START	(0x000e0000)		/* Start of BIOS memory */
 #define BIOS_END  	(0x000fffff)		/* End of BIOS memory */
 #define BIOS_LENGTH	(BIOS_END - BIOS_START)	/* Length of BIOS memory */
+#undef PAGE_SIZE
 #define PAGE_SIZE	(4096)
 
 static fwts_acpi_table_info	tables[ACPI_MAX_TABLES];
