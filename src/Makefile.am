@@ -14,7 +14,7 @@ AM_CPPFLAGS = \
 	`pkg-config --silence-errors --cflags json`	\
 	`pkg-config --silence-errors --cflags json-c`	\
 	-pthread `pkg-config --cflags glib-2.0 gio-2.0` \
-	-Wall -Werror -Wextra				\
+	-Wall -Wextra -Wno-error=pedantic -O		\
 	-Wno-address-of-packed-member			\
 	-Wfloat-equal -Wmissing-declarations		\
 	-Wno-long-long -Wredundant-decls -Wshadow	\
