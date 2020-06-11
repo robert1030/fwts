@@ -16,7 +16,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
 
-AM_CPPFLAGS = -Wall -Wextra -Wno-error=pedantic -O -DDATAROOTDIR=\"$(datarootdir)\" \
+AM_CPPFLAGS = -Wall -Wextra -DDATAROOTDIR=\"$(datarootdir)\" \
 	`pkg-config --silence-errors --cflags json` \
 	`pkg-config --silence-errors --cflags json-c`
 
