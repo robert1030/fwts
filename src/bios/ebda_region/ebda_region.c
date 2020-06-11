@@ -83,9 +83,9 @@ static int ebda_test1(fwts_framework *fw)
 	if ((entry != NULL) &&
 	    (entry->type == FWTS_MEMORY_MAP_RESERVED ||
 	     entry->type == FWTS_MEMORY_MAP_ACPI)) {
-		fwts_passed(fw, "EBDA region mapped at 0x%lx and reserved as a %" PRId64
+		fwts_passed(fw, "EBDA region mapped at 0x%jdx and reserved as a %" PRId64
 			"K region in the %s table at 0x%" PRIx64 "..0x%" PRIx64 ".",
-			ebda_addr,
+			(intmax_t)ebda_addr,
 			(entry->end_address - entry->start_address) / 1024,
 			memory_map_name,
 			entry->start_address,
@@ -93,8 +93,8 @@ static int ebda_test1(fwts_framework *fw)
 	} else
 		fwts_failed(fw, LOG_LEVEL_MEDIUM,
 			"EBDAMappedNotReserved",
-			"EBDA region mapped at 0x%lx but not reserved in the %s table.",
-			ebda_addr, memory_map_name);
+			"EBDA region mapped at 0x%jdx but not reserved in the %s table.",
+			(intmax_t)ebda_addr, memory_map_name);
 		
 	return FWTS_OK;
 }
