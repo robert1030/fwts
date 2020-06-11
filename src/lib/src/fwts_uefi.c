@@ -62,6 +62,9 @@ typedef struct {
 #define UEFI_IFACE_NONE			(1)	/* None found */
 #define UEFI_IFACE_SYSFS		(2)	/* sysfs */
 #define UEFI_IFACE_EFIVARS		(3)	/* efivar fs */
+#ifndef __SWORD_TYPE
+typedef __typeof__( ((struct statfs *)0)->f_type )	__SWORD_TYPE;
+#endif
 
 /* File system magic numbers */
 #define PSTOREFS_MAGIC          ((__SWORD_TYPE)0x6165676C)
